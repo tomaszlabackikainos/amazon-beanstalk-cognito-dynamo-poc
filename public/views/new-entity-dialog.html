@@ -1,0 +1,32 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title">Add new entity</h4>
+    </div>
+    <div class="modal-body">
+        <form name="signupForm" ng-submit="submit()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" ng-model="offer.offerName" placeholder="type some product name here"
+                       class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" ng-model="offer.offerDescription"
+                       placeholder="type some product description here" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" id="price" name="price" placeholder="type some product price here"
+                       class="form-control" ng-model="offer.price" required/>
+            </div>
+            <div class="form-group">
+                <label for="count">Count available</label>
+                <input type="number" id="count" name="count" placeholder="type some product count here"
+                       class="form-control" ng-model="offer.countAvailable" required/>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>

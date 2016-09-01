@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="header">
+        <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="" ng-click="logout()">Logout</a></li>
+        </ul><a ng-href="#/" class="no-underline">
+        <h3 class="text-muted">Kainos Amazon PoC</h3></a>
+    </div>
+
+    <p>Offers from DynamoDB</p>
+
+    <input name="test" ng-model="test" value="testtt"/>
+    <div ng-init="showSearch = false">
+        <div class="text-right">
+            <a href="" class="text-right no-underline" ng-model="showSearch" ng-click="showSearch = !showSearch">
+                <span class="glyphicon glyphicon-search"></span>
+                <span ng-if="!showSearch">Search</span>
+                <span ng-if="showSearch" ng-click="reloadOffers()">Search</span>
+            </a>
+        </div>
+        <div ng-if="showSearch">
+            <form name="offersSearch" class="form-inline text-center bg-info" ng-submit="reloadOffers(offerSearch)">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" ng-model="offerSearch.name" class="form-control"/>
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" ng-model="offerSearch.description"
+                       class="form-control"/>
+                <label for="price">Price</label>
+                <input type="number" id="price" name="price" ng-model="offerSearch.price" class="form-control"/>
+                <label for="countAvailable">Count available</label>
+                <input type="number" name="countAvailable" id="countAvailable" ng-model="offerSearch.countAvailable"
+                       class="form-control"/>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <table class="table table-striped" ng-init="reloadOffers()">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Count available</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="offer in offers">
+                <td>{{offer.offerId.S}}</td>
+                <td>{{offer.offerName.S}}</td>
+                <td>{{offer.offerDescription.S}}</td>
+                <td>{{offer.price.N}}</td>
+                <td>{{offer.countAvailable.N}}</td>
+            </tr>
+        <tr class="text-center" ng-if="offers.length === 0">
+            <td colspan="5"><img src="/ellipsis.svg" width="18"/></td>
+        </tr>
+        </tbody>
+    </table>
+    <p><button ng-click="open()" class="btn btn-success pull-right">+ Add entry</button></p>
+</div>

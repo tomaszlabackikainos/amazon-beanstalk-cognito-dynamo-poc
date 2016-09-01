@@ -1,0 +1,16 @@
+.no-underline {
+    text-decoration: none !important;
+}
+
+.half-width {
+    width: 50% !important;
+}
+
+form[name=offersSearch] {
+    padding: 20px;
+}
+
+form[name=offersSearch] label {
+    font-size: 0.9em;
+    margin-left: 10px;
+}
