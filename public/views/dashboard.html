@@ -18,16 +18,16 @@
         </div>
         <div ng-if="showSearch">
             <form name="offersSearch" class="form-inline text-center bg-info" ng-submit="reloadOffers(offerSearch)">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" ng-model="offerSearch.name" class="form-control"/>
-                <label for="description">Description</label>
-                <input type="text" id="description" name="description" ng-model="offerSearch.description"
+                <label for="offerName">Name</label>
+                <input type="text" id="offerName" name="offerName" ng-model="offerSearch.offerName" class="form-control"/>
+                <label for="offerDescription">Description</label>
+                <input type="text" id="offerDescription" name="offerDescription" ng-model="offerSearch.offerDescription"
                        class="form-control"/>
-                <label for="price">Price</label>
-                <input type="number" id="price" name="price" ng-model="offerSearch.price" class="form-control"/>
-                <label for="countAvailable">Count available</label>
-                <input type="number" name="countAvailable" id="countAvailable" ng-model="offerSearch.countAvailable"
-                       class="form-control"/>
+                <!--<label for="price">Price</label>-->
+                <!--<input type="number" id="price" name="price" ng-model="offerSearch.price" class="form-control"/>-->
+                <!--<label for="countAvailable">Count available</label>-->
+                <!--<input type="number" name="countAvailable" id="countAvailable" ng-model="offerSearch.countAvailable"-->
+                       <!--class="form-control"/>-->
                 <button type="submit" class="btn btn-default">Search</button>
             </form>
         </div>
@@ -51,8 +51,11 @@
                 <td>{{offer.price.N}}</td>
                 <td>{{offer.countAvailable.N}}</td>
             </tr>
-        <tr class="text-center" ng-if="offers.length === 0">
+        <tr class="text-center" ng-if="requestInProgress">
             <td colspan="5"><img src="/ellipsis.svg" width="18"/></td>
+        </tr>
+        <tr class="text-center" ng-if="!requestInProgress && offers.length === 0">
+            <td colspan="5" class="text-center"><em>no results</em></td>
         </tr>
         </tbody>
     </table>

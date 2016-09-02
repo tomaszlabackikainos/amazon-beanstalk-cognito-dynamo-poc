@@ -22,8 +22,10 @@ kainosApp
 
         $scope.reloadOffers = function(offerSearch) {
             $scope.offers = [];
+            $scope.requestInProgress = true;
             Offer.get(_.pickBy(offerSearch), function(data) {
                 $scope.offers = data.Items;
+                $scope.requestInProgress = false;
             })
         }
     })
