@@ -156,7 +156,7 @@ kainosApp.factory('httpRequestInterceptor', function (Session) {
         request: function (config) {
 
             config.headers = {
-                Authorization: Session.cognito,
+                "X-Authorization": Session.cognito,
                 'Content-Type': 'application/json'
             };
 
